@@ -1,0 +1,113 @@
+{
+  "name": "finance",
+  "login": {
+    "login_url": "http://192.168.1.101:52400/user/login",
+    "login_data": {
+      "username": 12345678910,
+      "password": 123456
+    }
+  },
+  "storage": {
+    "storage_url":"http://192.168.1.101:52400/api/report/order/storage",
+    "storage_data": {
+      "limit": 20,
+      "offset": 0,
+      "cityIds": [
+        320100,
+        320200,
+        320700,
+        321200,
+        360100
+      ],
+      "warehouseIds": [
+        13,
+        22,
+        4,
+        15,
+        16,
+        17,
+        18,
+        112,
+        113,
+        80,
+        81,
+        10,
+        106,
+        128
+      ],
+      "receiptStartTime": "2018-03-04 00:00:00",
+      "receiptEndTime": "2018-04-03 23:59:59"
+    }
+  },
+  "checkSale": {
+    "checkSale_url": "http://192.168.1.101:52400/api/checkOrder/checkSale/checkSale/list",
+    "checkSale_data":{
+    "checkStates":[
+    ],
+    "courierId":"",
+    "timeType":"4",
+    "startTime":"2018-01-01 14:21:30",
+    "endTime":"2018-12-31 14:21:30",
+    "payType":"",
+    "storeGoodsOrderId":"11118268",
+    "storeId":"",
+    "storeName":"",
+    "warehouseIds":[
+    80,
+    81,
+    10,
+    80,
+    81,
+    10
+    ],
+    "cityIds":[
+    320700,
+    321200
+    ],
+    "limit":20,
+    "offset":0
+    }
+  },
+  "checkOrder": {
+    "checkOrder_url":"http://192.168.1.101:52400/api/checkOrder/deliveryOrder/list",
+    "checkOrder_data":{
+      "checkState": "1",
+      "cityids": [
+        320100,
+        320200,
+        320700,
+        321200,
+        360100
+      ],
+      "warehouseIds": [
+        13,
+        22,
+        4,
+        15,
+        16,
+        17,
+        18,
+        112,
+        113,
+        80,
+        81,
+        10,
+        106,
+        128
+      ],
+      "limit": 20,
+      "offset": 0,
+      "timeType": "createdAt",
+      "startTime": "2018-04-02 09:37:40",
+      "endTime": "2018-04-09 09:37:40",
+      "splitOrderState": "",
+      "isPaid": "",
+      "payMethod": "",
+      "payType": "",
+      "payer": "",
+      "deliveryManId": null,
+      "storeGoodsOrderId": "11118422",
+      "splitOrderId": ""
+    }
+  }
+}

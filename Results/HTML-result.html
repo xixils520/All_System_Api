@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>店达系统自动化测试报告</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2.1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    
+<style type="text/css" media="screen">
+body        { font-family: Microsoft YaHei,Tahoma,arial,helvetica,sans-serif;padding: 20px; font-size: 80%; }
+table       { font-size: 100%; }
+
+/* -- heading ---------------------------------------------------------------------- */
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+
+/* -- report ------------------------------------------------------------------------ */
+#total_row  { font-weight: bold; }
+.passCase   { color: #5cb85c; }
+.failCase   { color: #d9534f; font-weight: bold; }
+.errorCase  { color: #f0ad4e; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+</style>
+
+</head>
+<body >
+<script language="javascript" type="text/javascript">
+output_list = Array();
+
+/*level 调整增加只显示通过用例的分类 --Findyou
+0:Summary //all hiddenRow
+1:Failed  //pt hiddenRow, ft none
+2:Pass    //pt none, ft hiddenRow
+3:All     //pt none, ft none
+*/
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level == 2 || level == 0 ) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level < 2) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+    }
+
+    //加入【详细】切换文字变化 --Findyou
+    detail_class=document.getElementsByClassName('detail');
+	//console.log(detail_class.length)
+	if (level == 3) {
+		for (var i = 0; i < detail_class.length; i++){
+			detail_class[i].innerHTML="收起"
+		}
+	}
+	else{
+			for (var i = 0; i < detail_class.length; i++){
+			detail_class[i].innerHTML="详细"
+		}
+	}
+}
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        //ID修改 点 为 下划线 -Findyou
+        tid0 = 't' + cid.substr(1) + '_' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        //修改点击无法收起的BUG，加入【详细】切换文字变化 --Findyou
+        if (toHide) {
+            document.getElementById(tid).className = 'hiddenRow';
+            document.getElementById(cid).innerText = "详细"
+        }
+        else {
+            document.getElementById(tid).className = '';
+            document.getElementById(cid).innerText = "收起"
+        }
+    }
+}
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+</script>
+<div class='heading'>
+<h1 style="font-family: Microsoft YaHei">店达系统自动化测试报告</h1>
+<p class='attribute'><strong>测试人员 : </strong> QA</p>
+<p class='attribute'><strong>开始时间 : </strong> 2018-04-10 11:10:25</p>
+<p class='attribute'><strong>合计耗时 : </strong> 0:00:01.482704</p>
+<p class='attribute'><strong>测试结果 : </strong> 共 4，通过 4，通过率= 100.00%</p>
+
+<p class='description'>详细测试报告:</p>
+</div>
+
+
+
+<p id='show_detail_line'>
+<a class="btn btn-primary" href='javascript:showCase(0)'>概要{ 100.00% }</a>
+<a class="btn btn-danger" href='javascript:showCase(1)'>失败{ 0 }</a>
+<a class="btn btn-success" href='javascript:showCase(2)'>通过{ 4 }</a>
+<a class="btn btn-info" href='javascript:showCase(3)'>所有{ 4 }</a>
+</p>
+<table id='result_table' class="table table-condensed table-bordered table-hover">
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row' class="text-center success" style="font-weight: bold;font-size: 14px;">
+    <td>用例集/测试用例</td>
+    <td>总计</td>
+    <td>通过</td>
+    <td>失败</td>
+    <td>错误</td>
+    <td>详细</td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>Project.finance_api.financeApi.FinanceApi: 新财务系统接口测试</td>
+    <td class="text-center">4</td>
+    <td class="text-center">4</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c1',4)" class="detail" id='c1'>详细</a></td>
+</tr>
+
+<tr id='pt1_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test1: 登录接口测试</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
+<tr id='pt1_2' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test2: 获取权限信息</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_2'>通过</button>
+    <div id='div_pt1_2' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_2' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_2'>通过</button>
+    <div id='div_pt1_2' class="collapse in">
+    <pre>
+    
+pt1_2: {'status': 1, 'message': '获取成功', 'data': {'count': 194, 'rows': [{'checkerName': '超级管理员', 'cityId': 320100, 'cityName': '南京市', 'extraOrder': 260832, 'fromName': '分类测试', 'receiptId': 14729979, 'receiptTime': '2018-04-03 19:20:53', 'receiptType': 1, 'receiptTypeName': 'stockIn', 'sum': '17.09400', 'sumWithTax': '20.00000', 'tax': '2.90600', 'toName': '南京仓库', 'taxType': 1}, {'checkerName': '超级管理员', 'cityId': 320100, 'cityName': '南京市', 'extraOrder': 260831, 'fromName': '小明测试', 'receiptId': 14729978, 'receiptTime': '2018-04-03 17:29:17', 'receiptType': 1, 'receiptTypeName': 'stockIn', 'sum': '8547.00900', 'sumWithTax': '10000.00000', 'tax': '1452.99100', 'toName': '南京仓库', 'taxType': 1}, {'checkerName': '超级管理员', 'cityId': 360100, 'cityName': '南昌市', 'extraOrder': 260828, 'fromName': '江盐测试供应商-下午H', 'receiptId': 14729977, 'receiptTime': '2018-04-03 15:27:04', 'receiptType': 1, 'receiptTypeName': 'stockIn', 'sum': '0.00000', 'sumWithTax': '0.00000', 'tax': '0.00000', 'toName': '南昌市仓库', 'taxType': None}, {'checkerName': '超级管理员', 'cityId': 320100, 'cityName': '南京市', 'extraOrder': 260826, 'fromName': '小明测试', 'receiptId': 14729976, 'receiptTime': '2018-04-03 15:24:47', 'receiptType': 1, 'receiptTypeName': 'stockIn', 'sum': '4319.70500', 'sumWithTax': '5000.00000', 'tax': '680.29500', 'toName': '南京仓库', 'taxType': 1}, {'checkerName': '超级管理员', 'cityId': 320100, 'cityName': '南京市', 'extraOrder': 'BC201804030003', 'fromName': '老师傅', 'receiptId': 14729975, 'receiptTime': '2018-04-03 15:02:33', 'receiptType': 2, 'receiptTypeName': 'supplierIn', 'sum': '0.00000', 'sumWithTax': '0.00000', 'tax': '0.00000', 'toName': '南京仓库', 'taxType': None}, {'checkerName': '超级管理员', 'cityId': 320100, 'cityName': '南京市', 'extraOrder': 'BC201804030002', 'fromName': '老师傅', 'receiptId': 14729974, 'receiptTime': '2018-04-03 15:02:29', 'receiptType': 2, 'receiptTypeName': 'supplierIn', 'sum': '0.00000', 'sumWithTax': '0.00000', 'tax': '0.00000', 'toName': '南京仓库', 'taxType': None}, {'checkerName': '超级管理员', 'cityId': 320100, 'cityName': '南京市', 'extraOrder': 260822, 'fromName': '无锡市优薯商贸有限公司', 'receiptId': 14729972, 'receiptTime': '2018-04-03 14:33:58', 'receiptType': 1, 'receiptTypeName': 'stockIn', 'sum': '10.00000', 'sumWithTax': '10.00000', 'tax': '0.00000', 'toName': '南京仓库', 'taxType': 1}, {'checkerName': '超级管理员', 'cityId': 360100, 'cityName': '南昌市', 'extraOrder': 260821, 'fromName': '进贤仓库', 'receiptId': 14729971, 'receiptTime': '2018-04-03 14:16:20', 'receiptType': 3, 'receiptTypeName': 'transferIn', 'sum': '0.00000', 'sumWithTax': '0.00000', 'tax': '0.00000', 'toName': '南昌市仓库', 'taxType': None}, {'checkerName': '超级管理员', 'cityId': 360100, 'cityName': '南昌市', 'extraOrder': 'BC201804030001', 'fromName': '江盐测试入驻商-下午A ', 'receiptId': 14729969, 'receiptTime': '2018-04-03 14:03:12', 'receiptType': 2, 'receiptTypeName': 'supplierIn', 'sum': '0.00000', 'sumWithTax': '0.00000', 'tax': '0.00000', 'toName': '南昌市仓库', 'taxType': None}, {'checkerName': '超级管理员', 'cityId': 360100, 'cityName': '南昌市', 'extraOrder': 260817, 'fromName': '江盐测试供应商-下午H', 'receiptId': 14729968, 'receiptTime': '2018-04-03 13:54:21', 'receiptType': 1, 'receiptTypeName': 'stockIn', 'sum': '51.28200', 'sumWithTax': '60.00000', 'tax': '8.71800', 'toName': '南昌市仓库', 'taxType': None}, {'checkerName': '超级管理员', 'cityId': 360100, 'cityName': '南昌市', 'extraOrder': 260816, 'fromName': '进贤仓库', 'receiptId': 14729967, 'receiptTime': '2018-04-03 12:16:45', 'receiptType': 3, 'receiptTypeName': 'transferIn', 'sum': '0.00000', 'sumWithTax': '0.00000', 'tax': '0.00000', 'toName': '南昌市仓库', 'taxType': None}, {'checkerName': '超级管理员', 'cityId': 360100, 'cityName': '南昌市', 'extraOrder': 260814, 'fromName': '进贤仓库', 'receiptId': 14729965, 'receiptTime': '2018-04-03 12:10:14', 'receiptType': 3, 'receiptTypeName': 'transferIn', 'sum': '0.00000', 'sumWithTax': '0.00000', 'tax': '0.00000', 'toName': '南昌市仓库', 'taxType': None}, {'checkerName': '超级管理员', 'cityId': 320100, 'cityName': '南京市', 'extraOrder': 260793, 'fromName': '分类测试', 'receiptId': 14729963, 'receiptTime': '2018-04-03 11:45:03', 'receiptType': 1, 'receiptTypeName': 'stockIn', 'sum': '427.35000', 'sumWithTax': '500.00000', 'tax': '72.65000', 'toName': '南京仓库', 'taxType': 1}, {'checkerName': '超级管理员', 'cityId': 320100, 'cityName': '南京市', 'extraOrder': 260812, 'fromName': '杨欢', 'receiptId': 14729962, 'receiptTime': '2018-04-03 11:42:53', 'receiptType': 1, 'receiptTypeName': 'stockIn', 'sum': '170.94020', 'sumWithTax': '200.00000', 'tax': '29.05980', 'toName': '南京仓库', 'taxType': None}, {'checkerName': '超级管理员', 'cityId': 320100, 'cityName': '南京市', 'extraOrder': 260810, 'fromName': '杨欢', 'receiptId': 14729961, 'receiptTime': '2018-04-03 11:37:53', 'receiptType': 1, 'receiptTypeName': 'stockIn', 'sum': '25.64100', 'sumWithTax': '30.00000', 'tax': '4.35900', 'toName': '南京仓库', 'taxType': None}, {'checkerName': '超级管理员', 'cityId': 360100, 'cityName': '南昌市', 'extraOrder': 260809, 'fromName': '进贤仓库', 'receiptId': 14729960, 'receiptTime': '2018-04-03 11:27:04', 'receiptType': 3, 'receiptTypeName': 'transferIn', 'sum': '0.00000', 'sumWithTax': '0.00000', 'tax': '0.00000', 'toName': '南昌市仓库', 'taxType': None}, {'checkerName': '超级管理员', 'cityId': 320100, 'cityName': '南京市', 'extraOrder': 260807, 'fromName': '小明测试', 'receiptId': 14729958, 'receiptTime': '2018-04-03 11:06:29', 'receiptType': 1, 'receiptTypeName': 'stockIn', 'sum': '900.90100', 'sumWithTax': '1000.00000', 'tax': '99.09900', 'toName': '南京仓库', 'taxType': 1}, {'checkerName': '超级管理员', 'cityId': 320100, 'cityName': '南京市', 'extraOrder': 260800, 'fromName': '测试主仓', 'receiptId': 14729956, 'receiptTime': '2018-04-03 10:17:48', 'receiptType': 1, 'receiptTypeName': 'stockIn', 'sum': '25.64100', 'sumWithTax': '30.00000', 'tax': '4.35900', 'toName': '南京仓库', 'taxType': None}, {'checkerName': '超级管理员', 'cityId': 320100, 'cityName': '南京市', 'extraOrder': 260804, 'fromName': '测试主仓', 'receiptId': 14729955, 'receiptTime': '2018-04-03 10:16:37', 'receiptType': 1, 'receiptTypeName': 'stockIn', 'sum': '25.64100', 'sumWithTax': '30.00000', 'tax': '4.35900', 'toName': '南京仓库', 'taxType': None}, {'checkerName': '超级管理员', 'cityId': 360100, 'cityName': '南昌市', 'extraOrder': 260803, 'fromName': '江盐测试供应商-下午H', 'receiptId': 14729954, 'receiptTime': '2018-04-03 09:55:43', 'receiptType': 1, 'receiptTypeName': 'stockIn', 'sum': '25.64100', 'sumWithTax': '30.00000', 'tax': '4.35900', 'toName': '南昌市仓库', 'taxType': None}]}}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1_3' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test3: 查询主订单核销订单号</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_3' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_3'>通过</button>
+    <div id='div_pt1_3' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_3' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_3'>通过</button>
+    <div id='div_pt1_3' class="collapse in">
+    <pre>
+    
+pt1_3: {'status': 1, 'message': '获取成功', 'data': {'count': 1, 'rows': [{'id': 281163, 'checkState': 3, 'state': 999, 'sum': '182.00000', 'storeGoodsOrderId': 11118268, 'countyId': 320703, 'originalSum': '242.00000', 'checkedSum': '182.00000', 'unchekedSum': '0.00000', 'posUncheckedSum': '0', 'cashUncheckedSum': '0.00000', 'wxUncheckedSum': '0', 'payType': 'cash', 'discountSum': '60.00000', 'operator': '系统自动', 'goodsName': '(散)R华味亨香蕉片158g', 'storeId': 162553, 'storeName': '谁都别抢我号', 'offType': 'PC', 'goodsAmount': 22, 'orderCreatedAt': '2018-03-29T08:21:25.000Z', 'dadouOff': '0.0000', 'arrivedTime': '2018-03-29T11:47:02.000Z', 'stockOutTime': None, 'createdAt': '2018-03-30T02:23:10.000Z', 'updatedAt': '2018-03-30T02:23:10.000Z', 'courierId': None, 'courierName': None, 'finishTime': '2018-03-30T02:23:10.000Z'}]}}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1_4' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test4: '查询分流单收款核销</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_4' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_4'>通过</button>
+    <div id='div_pt1_4' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_4' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_4'>通过</button>
+    <div id='div_pt1_4' class="collapse in">
+    <pre>
+    
+pt1_4: [{'storeGoodsOrderId': 11118422, 'splitOrderId': 'DD13146', 'storeGoodsOrderState': 20, 'splitOrderState': 'partArrive', 'splitOrderOff': 0, 'payMethod': 'online', 'splitOrderSum': 0.01, 'splitOrderSumAll': 0.01, 'payType': 'wechat', 'tradeRecordNo': '01001201804081230084', 'createdAt': '2018-04-08 16:22:54', 'pickupTime': '2018-04-09 00:25:08', 'arrivedTime': '2018-04-08 16:25:41', 'payTime': '2018-04-08 16:23:10', 'deliveryManId': 106, 'deliveryManName': '李松', 'refundState': 10, 'refundTradeNo': '01001201804081100014', 'refundTime': '2018-04-08T08:25:41.000Z', 'refundFee': 0.01, 'errorMsg': None, 'checkState': None, 'diffSum': None, 'payer': '店家', 'splitOrderStateStr': '部分送达', 'payTypeStr': '微信', 'payMethodStr': '店家下单在线支付', 'storeGoodsOrderStateStr': '部分送达', 'refundStateStr': '退款成功'}]
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='total_row' class="text-center active">
+    <td>总计</td>
+    <td>4</td>
+    <td>4</td>
+    <td>0</td>
+    <td>0</td>
+    <td>通过率：100.00%</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+    <div style=" position:fixed;right:50px; bottom:30px; width:20px; height:20px;cursor:pointer">
+    <a href="#"><span class="glyphicon glyphicon-eject" style = "font-size:30px;" aria-hidden="true">
+    </span></a></div>
+    
+
+</body>
+</html>
