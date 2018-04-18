@@ -40,7 +40,7 @@ def do_TestUnit():
     #运行测试用例
     runner.run(testSuit)
     fp.close()
-    end=time.strftime('%Y-%m-%d-%H_%M_%S', time.localtime(time.time()))
+    end=time.strftime('%Y-%m-%d-%H-%M-%S', time.localtime(time.time()))
     print('结束时间',end)
 if __name__=="__main__":
     do_TestUnit()

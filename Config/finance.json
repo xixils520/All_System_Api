@@ -8,7 +8,7 @@
     }
   },
   "storage": {
-    "storage_url":"http://192.168.1.101:52400/api/report/order/storage",
+    "storage_url": "http://192.168.1.101:52400/api/report/order/storage",
     "storage_data": {
       "limit": 20,
       "offset": 0,
@@ -41,36 +41,36 @@
   },
   "checkSale": {
     "checkSale_url": "http://192.168.1.101:52400/api/checkOrder/checkSale/checkSale/list",
-    "checkSale_data":{
-    "checkStates":[
-    ],
-    "courierId":"",
-    "timeType":"4",
-    "startTime":"2018-01-01 14:21:30",
-    "endTime":"2018-12-31 14:21:30",
-    "payType":"",
-    "storeGoodsOrderId":"11118268",
-    "storeId":"",
-    "storeName":"",
-    "warehouseIds":[
-    80,
-    81,
-    10,
-    80,
-    81,
-    10
-    ],
-    "cityIds":[
-    320700,
-    321200
-    ],
-    "limit":20,
-    "offset":0
+    "checkSale_data": {
+      "checkStates": [
+      ],
+      "courierId": "",
+      "timeType": "4",
+      "startTime": "2018-01-01 14:21:30",
+      "endTime": "2019-12-31 14:21:30",
+      "payType": "",
+      "storeGoodsOrderId": "11118268",
+      "storeId": "",
+      "storeName": "",
+      "warehouseIds": [
+        80,
+        81,
+        10,
+        80,
+        81,
+        10
+      ],
+      "cityIds": [
+        320700,
+        321200
+      ],
+      "limit": 20,
+      "offset": 0
     }
   },
   "checkOrder": {
-    "checkOrder_url":"http://192.168.1.101:52400/api/checkOrder/deliveryOrder/list",
-    "checkOrder_data":{
+    "checkOrder_url": "http://192.168.1.101:52400/api/checkOrder/deliveryOrder/list",
+    "checkOrder_data": {
       "checkState": "1",
       "cityids": [
         320100,
@@ -99,7 +99,7 @@
       "offset": 0,
       "timeType": "createdAt",
       "startTime": "2018-04-02 09:37:40",
-      "endTime": "2018-04-09 09:37:40",
+      "endTime": "2019-04-09 09:37:40",
       "splitOrderState": "",
       "isPaid": "",
       "payMethod": "",
@@ -108,6 +108,102 @@
       "deliveryManId": null,
       "storeGoodsOrderId": "11118422",
       "splitOrderId": ""
+    }
+  },
+  "backGoodsOrder": {
+    "backGoodsOrder_url": "http://192.168.1.101:52400/api/backGoodsOrder/list",
+    "backGoodsOrder_data": {
+      "limit": 20,
+      "offset": 0,
+      "cityIds": [
+        360100,
+        320100,
+        321200,
+        320200,
+        320700
+      ],
+      "warehouseIds": [
+        106,
+        128,
+        13,
+        15,
+        10,
+        4,
+        16,
+        17,
+        18,
+        113,
+        80,
+        81
+      ],
+      "refundNo": "TH20180416702",
+      "orderId": "11118531",
+      "storeName": "hdhaada",
+      "deliveryManId": 150,
+      "checkStartTime": "2018-03-17",
+      "checkEndTime": "2018-04-16",
+      "receiptStartTime": "2018-03-17",
+      "receiptEndTime": "2019-04-30"
+    }
+  },
+  "reportorder": {
+    "reportorder_url": "http://192.168.1.101:52400/api/report/order/storage",
+    "reportorder_data": {
+      "limit": 20,
+      "offset": 0,
+      "cityIds": [
+        360100,
+        320100,
+        321200,
+        320200,
+        320700
+      ],
+      "warehouseIds": [
+        106,
+        128,
+        13,
+        15,
+        10,
+        4,
+        16,
+        17,
+        18,
+        113,
+        80,
+        81
+      ],
+      "receiptId": "14730054",
+      "receiptType": 1,
+      "extraOrderType": 1,
+      "extraOrderId": "260945",
+      "receiptStartTime": "2018-03-17 00:00:00",
+      "receiptEndTime": "2021-04-30 23:59:59"
+    }
+  },
+  "storageinfo": {
+    "storageinfo_url": "http://192.168.1.101:52400/api/report/order/storage/info",
+    "storageinfo_data": {
+      "id": "14730054"
+    }
+  },
+    "storagedetail": {
+    "storagedetail_url": "http://192.168.1.101:52400/api/report/order/storage/detail",
+    "storagedetail_data": {
+      "id": "14730054"
+    }
+  },
+   "outWarehouse": {
+    "outWarehouse_url": "http://192.168.1.101:52400/api/report/order/outWarehouse",
+    "outWarehouse_data": {
+	"limit": 20,
+	"offset": 0,
+	"cityIds": [360100, 320100, 321200, 320200, 320700],
+	"warehouseIds": [106, 128, 13, 15, 10, 4, 16, 17, 18, 113, 80, 81],
+	"storeOrderBranchId": "5419",
+	"storeGoodsOrderId": "11118552",
+	"storeName": "硕硕百货",
+	"arrivedStartTime": "2018-03-18 00:00:00",
+	"arrivedEndTime": "2020-03-31 23:59:59"
     }
   }
 }
